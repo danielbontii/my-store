@@ -8,8 +8,10 @@ import { Product } from 'src/app/models/Product';
 })
 export class ProductItemComponent {
   @Input() product: Product;
+  @Input() quantity: number;
 
   constructor() {
     this.product = new Product(0, '', 0, '', '');
+    this.quantity = 1;
   }
 }

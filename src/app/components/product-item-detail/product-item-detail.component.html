@@ -1,0 +1,25 @@
+<div class="detail-container" *ngIf="product">
+  <img src="{{ product.url }}" alt="{{ product.name }}" />
+
+  <div class="detail-item">
+    <h2>{{ product.name }}</h2>
+    <p>GH&#8373; {{ product.price }}</p>
+    <p>{{ product.description }}</p>
+    <form action="">
+      <input
+        type="number"
+        name=""
+        id=""
+        class="select-input"
+        min="1"
+        [defaultValue]="1"
+      />
+      <input type="submit" value="Add to cart" />
+    </form>
+    <p>
+      <a routerLink="/products" class="back-link"
+        >&LeftArrow; Back to product list</a
+      >
+    </p>
+  </div>
+</div>

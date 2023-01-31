@@ -1,18 +1,12 @@
 <div class="product-container">
-  <img src="{{product.url}}" alt="{{product.name}" class="product-image" />
-  <p>{{product.name}}</p>
-  <p>GH&#8373;{{product.price}}</p>
-  <input type="number" name="" id="" class="select-input" list="quantities">
-  <datalist id="quantities">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-  </datalist>
-  <button>Add to cart</button>
+  <a routerLink="/products/{{product.id}}"
+    ><img src="{{ product.url }}" alt="{{product.name}" class="product-image"
+  /></a>
+  <p>{{ product.name }}</p>
+  <p>GH&#8373;{{ product.price }}</p>
+  <form action="">
+
+    <input type="number" name="" id="" class="select-input" min="1" [defaultValue]="1" />
+    <button>Add to cart</button>
+  </form>
 </div>
