@@ -1,0 +1,22 @@
+<div class="cart-container" *ngFor="let item of cartItems">
+  <!-- {{cartItems.length}} -->
+  <div class="cart-item" >
+    <img src="{{ item.url }}" alt="{{ item.name }}" />
+    <div class="cart-item-details">
+      <h2>{{ item.name }}</h2>
+      <p>GH&#8373; {{ item.price }}</p>
+      <label for="amount">Amount</label>
+      <input
+        type="number"
+        class="number-input"
+        name=""
+        id="amount"
+        value="{{ item.quantity }}"
+      />
+    </div>
+  </div>
+  <!-- <div class="cart-panel">
+    <label for="name">Full name</label>
+    <input type="text" name="" id="name" />
+  </div> -->
+</div>
