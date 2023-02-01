@@ -5,14 +5,15 @@
     <h2>{{ product.name }}</h2>
     <p>GH&#8373; {{ product.price }}</p>
     <p>{{ product.description }}</p>
-    <form action="">
+    <form #form="ngForm" (ngSubmit)="addToCart()">
       <input
         type="number"
-        name=""
+        name="quantity"
         id=""
         class="select-input"
         min="1"
         [defaultValue]="1"
+        [(ngModel)]="quantity"
       />
       <input type="submit" value="Add to cart" />
     </form>
