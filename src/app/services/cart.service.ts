@@ -11,8 +11,13 @@ export class CartService {
     return this.cart;
   }
 
+  findCartItemIndex(id: number): number {
+    return this.cart.findIndex((cartItem) => cartItem.id === id);
+  }
+
   addToCart = (item: CartItem): CartItem[] => {
-    const index = this.cart.findIndex((cartItem) => cartItem.id === item.id);
+    // const index = this.cart.findIndex((cartItem) => cartItem.id === item.id);
+    const index = this.findCartItemIndex(item.id);
     if (index !== -1) {
       this.cart[index].quantity += item.quantity;
       alert(`${item.name} added to cart`);
@@ -28,7 +33,8 @@ export class CartService {
   };
 
   removeFromCart(id: number): CartItem[] {
-    const index = this.cart.findIndex((cartItem) => cartItem.id === id);
+    // const index = this.cart.findIndex((cartItem) => cartItem.id === id);
+    const index = this.findCartItemIndex(id);
     if (index !== -1) {
       this.cart.splice(index, 1);
       alert(`${this.cart[index].name} removed from cart`);
@@ -36,5 +42,21 @@ export class CartService {
       return this.cart;
     }
     throw new Error('Cart Item not found');
+  }
+
+  calculateCost(updatedItem: (CartItem | null) = null ): number {
+    if (updatedItem) {
+      const updatedItemIndex = this.findCartItemIndex(updatedItem.id);
+
+      if (updatedItemIndex !== -1) {
+        this.cart[updatedItemIndex].quantity = updatedItem.quantity;
+      }
+    }
+    const cost =  this.cart.reduce(
+      (prev, curr) => curr.quantity * curr.price + prev,
+      0
+    );
+
+    return parseFloat(cost.toFixed(2));
   }
 }
