@@ -1,14 +1,21 @@
-/* STYLES PROVIDED BY UDACITY */
-
 .product-index {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  /* max-width: 1024px; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   margin-bottom: 64px;
 }
 
 .product-container {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .product-index {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .product-index {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
