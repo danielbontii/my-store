@@ -1,11 +1,14 @@
-
 <div class="cart-container">
   <div>
-    <app-cart-item *ngFor="let item of cartItems" [item]="item"></app-cart-item>
+    <app-cart-item
+      *ngFor="let item of cartItems"
+      [item]="item"
+      (updatedItemPrice)="updateItemPrice($event)"
+      (removeCartItem)="removeCartItem($event)"
+    ></app-cart-item>
   </div>
 
   <form class="cart-panel">
-
     <label for="name" class="block">Full name</label>
     <input type="text" class="block form-margin" name="" id="name" />
 
@@ -21,6 +24,6 @@
   </form>
   <div class="cost">
     <h3>Total Cost</h3>
-    <p> GH&#8373; {{totalCost.toFixed(2)}}</p>
+    <p>GH&#8373; {{ totalCost.toFixed(2) }}</p>
   </div>
 </div>

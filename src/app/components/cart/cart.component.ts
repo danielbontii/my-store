@@ -20,4 +20,12 @@ export class CartComponent {
     this.totalCost = this.cartService.calculateCost();
   }
 
+  updateItemPrice(item: CartItem):void {
+    this.totalCost = this.cartService.calculateCost(item)
+  }
+
+  removeCartItem(id: number):void {
+    this.cartItems = this.cartService.removeFromCart(id);
+  }
+
 }

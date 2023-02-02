@@ -16,7 +16,6 @@ export class CartService {
   }
 
   addToCart = (item: CartItem): CartItem[] => {
-    // const index = this.cart.findIndex((cartItem) => cartItem.id === item.id);
     const index = this.findCartItemIndex(item.id);
     if (index !== -1) {
       this.cart[index].quantity += item.quantity;
@@ -33,11 +32,12 @@ export class CartService {
   };
 
   removeFromCart(id: number): CartItem[] {
-    // const index = this.cart.findIndex((cartItem) => cartItem.id === id);
     const index = this.findCartItemIndex(id);
+    console.log(index, this.cart[index]);
+
     if (index !== -1) {
-      this.cart.splice(index, 1);
-      alert(`${this.cart[index].name} removed from cart`);
+      const itemToDelete = this.cart.splice(index, 1);
+      alert(`${itemToDelete[0].name} removed from cart`);
       console.log(this.cart);
       return this.cart;
     }
@@ -46,6 +46,12 @@ export class CartService {
 
   calculateCost(updatedItem: (CartItem | null) = null ): number {
     if (updatedItem) {
+
+      if (updatedItem.quantity === 0) {
+        this.removeFromCart(updatedItem.id);
+        return this.calculateCost();
+      }
+
       const updatedItemIndex = this.findCartItemIndex(updatedItem.id);
 
       if (updatedItemIndex !== -1) {

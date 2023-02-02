@@ -1,15 +1,21 @@
-<div class="cart-item" >
+<div class="cart-item">
   <img src="{{ item.url }}" alt="{{ item.name }}" />
   <div class="cart-item-details">
+
     <h2>{{ item.name }}</h2>
     <p>GH&#8373; {{ item.price }}</p>
     <label for="amount">Amount</label>
     <input
       type="number"
       class="number-input"
-      name=""
       id="amount"
-      value="{{ item.quantity }}"
+      min="0"
+      [(ngModel)]="quantity"
+      (change)="updateCost(item)"
     />
+    <button style="display: block" (click)="removeFromCart(item.id)">
+      Remove from cart&#10005;
+    </button>
   </div>
+
 </div>
