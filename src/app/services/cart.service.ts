@@ -5,60 +5,67 @@ import { CartItem } from '../models/CartItem';
   providedIn: 'root',
 })
 export class CartService {
-  cart: CartItem[] = [];
 
-  index() {
-    return this.cart;
+  index(): CartItem[] {
+    const cart = localStorage.getItem('cart');
+    if (cart) {
+      return JSON.parse(cart);
+    }
+    return [];
   }
 
-  findCartItemIndex(id: number): number {
-    return this.cart.findIndex((cartItem) => cartItem.id === id);
+  findCartItemIndex(cart: CartItem[], id: number): number {
+    return cart.findIndex((cartItem) => cartItem.id === id);
+  }
+
+  saveCart(cart: CartItem[]): void {
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
   addToCart = (item: CartItem): CartItem[] => {
-    const index = this.findCartItemIndex(item.id);
+    const cart = this.index();
+    const index = this.findCartItemIndex(cart, item.id);
     if (index !== -1) {
-      this.cart[index].quantity += item.quantity;
+      cart[index].quantity += item.quantity;
+      this.saveCart(cart);
       alert(`${item.name} added to cart`);
-      console.log(this.cart);
-      return this.cart;
+      return cart;
     }
 
-    this.cart.push(item);
+    cart.push(item);
+    this.saveCart(cart);
     alert(`${item.name} added to cart`);
-    console.log(this.cart);
-
-    return this.cart;
+    return cart;
   };
 
   removeFromCart(id: number): CartItem[] {
-    const index = this.findCartItemIndex(id);
-    console.log(index, this.cart[index]);
+    const cart = this.index();
+    const index = this.findCartItemIndex(cart, id);
 
     if (index !== -1) {
-      const itemToDelete = this.cart.splice(index, 1);
+      const itemToDelete = cart.splice(index, 1);
+      console.log(cart);
+      this.saveCart(cart);
       alert(`${itemToDelete[0].name} removed from cart`);
-      console.log(this.cart);
-      return this.cart;
+      return cart;
     }
     throw new Error('Cart Item not found');
   }
 
-  calculateCost(updatedItem: (CartItem | null) = null ): number {
+  calculateCost(updatedItem: CartItem | null = null): number {
+    const cart = this.index();
     if (updatedItem) {
-
       if (updatedItem.quantity === 0) {
         this.removeFromCart(updatedItem.id);
         return this.calculateCost();
       }
-
-      const updatedItemIndex = this.findCartItemIndex(updatedItem.id);
-
+      const updatedItemIndex = this.findCartItemIndex(cart, updatedItem.id);
       if (updatedItemIndex !== -1) {
-        this.cart[updatedItemIndex].quantity = updatedItem.quantity;
+        cart[updatedItemIndex].quantity = updatedItem.quantity;
+        this.saveCart(cart);
       }
     }
-    const cost =  this.cart.reduce(
+    const cost = cart.reduce(
       (prev, curr) => curr.quantity * curr.price + prev,
       0
     );

@@ -16,16 +16,26 @@ export class CartComponent {
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
+    this.updateCart();
+    this.updateTotalCost();
+  }
+
+  updateCart(): void {
     this.cartItems = this.cartService.index();
+  }
+
+  updateTotalCost(): void {
     this.totalCost = this.cartService.calculateCost();
   }
 
   updateItemPrice(item: CartItem):void {
     this.totalCost = this.cartService.calculateCost(item)
+    this.updateCart();
   }
 
   removeCartItem(id: number):void {
     this.cartItems = this.cartService.removeFromCart(id);
+    this.updateTotalCost();
   }
 
 }
