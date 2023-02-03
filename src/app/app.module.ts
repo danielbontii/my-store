@@ -11,6 +11,7 @@ import { ProductItemDetailComponent } from './components/product-item-detail/pro
 import { HeaderComponent } from './layout/header/header.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
     HeaderComponent,
     CartComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
+    CheckoutFormComponent
   ],
   imports: [
     BrowserModule,
