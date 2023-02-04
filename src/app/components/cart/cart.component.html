@@ -8,7 +8,10 @@
     ></app-cart-item>
   </div>
 
-  <app-checkout-form class="cart-panel"></app-checkout-form>
+  <app-checkout-form
+    class="cart-panel"
+    (emmitConfirmOrder)="confirmOrder($event)"
+  ></app-checkout-form>
 
   <div class="cost">
     <h3>Total Cost</h3>

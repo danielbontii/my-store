@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
-import { CartService } from 'src/app/services/cart.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { OrderDetails } from 'src/app/models/OrderDetails';
 
 @Component({
   selector: 'app-checkout-form',
@@ -15,16 +14,14 @@ export class CheckoutFormComponent {
   address: string = '';
   addressPattern: string | RegExp = '^[^\s]*([a-zA-Z0-9-_])+?\\s*([a-zA-Z0-9-_])*'
 
-
-  @Input()
   creditCardNumber: string | RegExp = '';
   creditCardPattern: string | RegExp = '\\d{16}';
 
-  constructor(private router: Router, private cartService: CartService) {}
+  @Output() emmitConfirmOrder: EventEmitter<OrderDetails> = new EventEmitter();
+
 
   confirmOrder():void {
-    this.cartService.emptyCart();
-    this.router.navigate(['confirmation'])
+    this.emmitConfirmOrder.emit(new OrderDetails(this.name));
   }
 
 }
