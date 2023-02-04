@@ -12,6 +12,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { CheckoutFormComponent } from './components/checkout-form/checkout-form.
     CartComponent,
     CartComponent,
     CartItemComponent,
-    CheckoutFormComponent
+    CheckoutFormComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,

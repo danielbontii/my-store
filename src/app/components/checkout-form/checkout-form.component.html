@@ -1,14 +1,56 @@
-<form class="cart-panel">
+<form #form="ngForm" (ngSubmit)="confirmOrder()" class="cart-panel">
   <label for="name" class="block">Full name</label>
-  <input type="text" class="block form-margin" name="" id="name" />
+  <input
+    required
+    type="text"
+    class="block form-margin"
+    id="name"
+    name="name"
+    maxlength="50"
+    [(ngModel)]="name"
+    [pattern]="namePattern"
+    #userName="ngModel"
+  />
+  <div class="error" *ngIf="userName.invalid && userName.dirty">
+    <p>At least one character</p>
+    <p>Only hyphens, strings and spaces</p>
+  </div>
 
   <label for="address" class="block">Address</label>
-  <input type="text" class="block form-margin" name="" id="address" />
+  <input
+    type="text"
+    required
+    class="block form-margin"
+    id="address"
+    name="address"
+    maxlength="100"
+    [(ngModel)]="address"
+    [pattern]="addressPattern"
+    #userAddress="ngModel"
+  />
+  <div *ngIf="userAddress.invalid && userAddress.dirty" class="error">
+    <p>At least one character</p>
+    <p>Only hyphens, space characters, numbers and underscores</p>
+  </div>
 
   <label for="creditcard" class="block">Credit card number</label>
-  <input type="text" class="block" name="" id="creditcard" />
+  <input
+    required
+    type="text"
+    class="block"
+    id="creditcard"
+    maxlength="16"
+    name="creditCardNumber"
+    [(ngModel)]="creditCardNumber"
+    [pattern]="creditCardPattern"
+    #creditCardNum="ngModel"
+  />
+  <div *ngIf="creditCardNum.invalid && creditCardNum.dirty" class="error">
+    <p>16 digit number</p>
+    <p>No characters</p>
+  </div>
   <span class="form-margin block">
     We'll never share your payment details with anyone else
   </span>
-  <input type="submit" value="Submit" />
+  <input type="submit" value="Submit" [disabled]="form.invalid" />
 </form>
