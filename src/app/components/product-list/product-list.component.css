@@ -19,3 +19,9 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.unavailable {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}

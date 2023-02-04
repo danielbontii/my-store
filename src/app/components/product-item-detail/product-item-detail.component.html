@@ -1,4 +1,4 @@
-<div class="detail-container" *ngIf="product">
+<div class="detail-container" *ngIf="product; else elseBlock">
   <img src="{{ product.url }}" alt="{{ product.name }}" />
 
   <div class="detail-item">
@@ -24,3 +24,10 @@
     </p>
   </div>
 </div>
+<ng-template #elseBlock>
+  <div class="detail-container">
+    <p>Oh ohhhh... </p>
+    <p>Product not found</p>
+  </div>
+  <a routerLink="/products" class="detail-container">&LeftArrow;Go back to products page</a>
+</ng-template>

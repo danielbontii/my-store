@@ -1,4 +1,4 @@
-<div class="cart-container">
+<div class="cart-container" *ngIf="cartItems.length > 0; else elseBlock">
   <div>
     <app-cart-item
       *ngFor="let item of cartItems"
@@ -18,3 +18,14 @@
     <p>GH&#8373; {{ totalCost.toFixed(2) }}</p>
   </div>
 </div>
+<ng-template #elseBlock>
+  <div class="empty-cart-message">
+    <p>
+      There are no items in the cart. Items will appear here when you add them
+      to the cart
+    </p>
+  </div>
+  <a routerLink="/products" class="empty-cart-message"
+    >&LeftArrow;Go back to products page</a
+  >
+</ng-template>
