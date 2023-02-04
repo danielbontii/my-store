@@ -72,4 +72,8 @@ export class CartService {
 
     return parseFloat(cost.toFixed(2));
   }
+
+  emptyCart(): void {
+    this.saveCart([]);
+  }
 }

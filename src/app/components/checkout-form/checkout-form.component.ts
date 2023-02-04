@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-checkout-form',
@@ -19,9 +20,10 @@ export class CheckoutFormComponent {
   creditCardNumber: string | RegExp = '';
   creditCardPattern: string | RegExp = '\\d{16}';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cartService: CartService) {}
 
   confirmOrder():void {
+    this.cartService.emptyCart();
     this.router.navigate(['confirmation'])
   }
 
