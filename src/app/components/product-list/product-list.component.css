@@ -20,8 +20,12 @@
   }
 }
 
-.unavailable {
+.center {
   display: flex;
   justify-content: center;
   margin-top: 5%;
+}
+
+.back-link {
+  grid-column: 2/3;
 }
