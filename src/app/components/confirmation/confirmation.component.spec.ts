@@ -11,6 +11,7 @@ describe('ConfirmationComponent', () => {
       declarations: [ ConfirmationComponent ]
     })
     .compileComponents();
+    history.pushState(30, 'cost');
 
     fixture = TestBed.createComponent(ConfirmationComponent);
     component = fixture.componentInstance;
