@@ -10,7 +10,7 @@ MyStore is an Angular application that allows users to view a list of available 
 
 `npm run test`: runs tests
 
-`npm run start`: starts the application
+`npm run start` or `ng serve`: starts the application
 
 `npm run lint`: lint the application for code smells
 
