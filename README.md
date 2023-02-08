@@ -36,6 +36,10 @@ MyStore is an Angular application that allows users to view a list of available 
 | /cart |  cart |  | 
 | /confirmation |  confirmation | This page will redirect to the cart page if you haven't checked out from the cart page with valid details |
 
+See shopping flow below
+
+![image](./shoppingflow.gif)
+
 ## Limitations
 This project is not very mobile responsive. For best results use a large screen.
 
