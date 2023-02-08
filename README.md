@@ -23,7 +23,7 @@ MyStore is an Angular application that allows users to view a list of available 
 ## Usage
 
 1. Clone the application
-2. Run `npm install`
+2. Run `npm install` or `ng serve`
 3. Run `npm run start`
 4. Enjoy 😃
 
