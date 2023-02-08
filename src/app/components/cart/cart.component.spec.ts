@@ -12,7 +12,7 @@ describe('CartComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [CartComponent, CheckoutFormComponent, CartItemComponent],
+      declarations: [CartComponent, CheckoutFormComponent, CartItemComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(CartComponent);

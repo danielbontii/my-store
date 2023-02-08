@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirmation',
@@ -13,12 +13,10 @@ export class ConfirmationComponent {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-
-    const {name,cost} = history.state;
+    const { name, cost } = history.state;
     console.log(name, cost);
 
-
-    if(!(name && cost)) {
+    if (!(name && cost)) {
       this.router.navigate(['cart']);
     }
 

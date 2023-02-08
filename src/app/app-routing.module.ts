@@ -7,15 +7,15 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
 import { HomepageComponent } from './components/homepage/homepage.component';
 
 const routes: Routes = [
-  {path: '', component: HomepageComponent},
+  { path: '', component: HomepageComponent },
   { path: 'products', component: ProductListComponent },
   { path: 'products/:id', component: ProductItemDetailComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'confirmation', component: ConfirmationComponent },
+  { path: 'confirmation', component: ConfirmationComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

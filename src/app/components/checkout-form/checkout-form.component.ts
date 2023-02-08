@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { OrderDetails } from 'src/app/models/OrderDetails';
 
 @Component({
@@ -7,21 +7,19 @@ import { OrderDetails } from 'src/app/models/OrderDetails';
   styleUrls: ['./checkout-form.component.css']
 })
 export class CheckoutFormComponent {
+  name = '';
+  namePattern = '^[^s]*([a-zA-Z-])+?\\s*([a-zA-Z-])*';
 
-  name: string = '';
-  namePattern: string | RegExp = '^[^\s]*([a-zA-Z-])+?\\s*([a-zA-Z-])*'
-
-  address: string = '';
-  addressPattern: string | RegExp = '^[^\s]*([a-zA-Z0-9-_])+?\\s*([a-zA-Z0-9-_])*'
+  address = '';
+  addressPattern: string | RegExp =
+    '^[^s]*([a-zA-Z0-9-_])+?\\s*([a-zA-Z0-9-_])*';
 
   creditCardNumber: string | RegExp = '';
   creditCardPattern: string | RegExp = '\\d{16}';
 
   @Output() emmitConfirmOrder: EventEmitter<OrderDetails> = new EventEmitter();
 
-
-  confirmOrder():void {
+  confirmOrder(): void {
     this.emmitConfirmOrder.emit(new OrderDetails(this.name));
   }
-
 }

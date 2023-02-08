@@ -11,7 +11,7 @@ describe('ProductItemComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FormsModule, RouterTestingModule],
-      declarations: [ProductItemComponent],
+      declarations: [ProductItemComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProductItemComponent);
@@ -21,7 +21,7 @@ describe('ProductItemComponent', () => {
       name: 'toy car',
       description: 'for kids',
       price: 0.99,
-      url: 'http://toycar.com',
+      url: 'http://toycar.com'
     };
     fixture.detectChanges();
   });

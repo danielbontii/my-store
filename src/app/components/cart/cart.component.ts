@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartItem } from 'src/app/models/CartItem';
 import { OrderDetails } from 'src/app/models/OrderDetails';
@@ -7,11 +7,11 @@ import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css'],
+  styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
   cartItems: CartItem[] = [];
-  totalCost: number = 0;
+  totalCost = 0;
 
   constructor(private cartService: CartService, private router: Router) {}
 
@@ -41,6 +41,6 @@ export class CartComponent {
   confirmOrder(item: OrderDetails): void {
     item.cost = this.totalCost;
     this.cartService.emptyCart();
-    this.router.navigate(['confirmation'], {state: item});
+    this.router.navigate(['confirmation'], { state: item });
   }
 }

@@ -8,7 +8,7 @@ describe('CartService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CheckoutFormComponent],
+      declarations: [CheckoutFormComponent]
     });
     service = TestBed.inject(CartService);
     service.emptyCart();
@@ -19,7 +19,7 @@ describe('CartService', () => {
       name: 'Doll',
       url: 'http://doll',
       price: 5,
-      description: 'test doll',
+      description: 'test doll'
     });
 
     service.addToCart({
@@ -28,7 +28,7 @@ describe('CartService', () => {
       name: 'Dummy knife',
       url: 'http://knife',
       price: 2,
-      description: 'fake cuts',
+      description: 'fake cuts'
     });
   });
 
@@ -48,7 +48,7 @@ describe('CartService', () => {
         name: 'Doll',
         url: 'http://doll',
         price: 5,
-        description: 'test doll',
+        description: 'test doll'
       },
       {
         id: 11,
@@ -56,8 +56,8 @@ describe('CartService', () => {
         name: 'Dummy knife',
         url: 'http://knife',
         price: 2,
-        description: 'fake cuts',
-      },
+        description: 'fake cuts'
+      }
     ]);
   });
 
@@ -79,7 +79,7 @@ describe('CartService', () => {
         name: 'Dummy knife',
         url: 'http://knife',
         price: 2,
-        description: 'fake cuts',
+        description: 'fake cuts'
       })
     ).toBe(14);
   });
@@ -91,7 +91,7 @@ describe('CartService', () => {
       name: 'Dummy knife',
       url: 'http://knife',
       price: 2,
-      description: 'fake cuts',
+      description: 'fake cuts'
     });
 
     expect(service.index()).toEqual([
@@ -101,8 +101,8 @@ describe('CartService', () => {
         name: 'Doll',
         url: 'http://doll',
         price: 5,
-        description: 'test doll',
-      },
+        description: 'test doll'
+      }
     ]);
   });
 
@@ -116,8 +116,8 @@ describe('CartService', () => {
         name: 'Dummy knife',
         url: 'http://knife',
         price: 2,
-        description: 'fake cuts',
-      },
+        description: 'fake cuts'
+      }
     ]);
   });
 

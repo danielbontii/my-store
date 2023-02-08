@@ -10,9 +10,8 @@ describe('CartItemComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [ CartItemComponent ]
-    })
-    .compileComponents();
+      declarations: [CartItemComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CartItemComponent);
     component = fixture.componentInstance;
@@ -24,7 +23,7 @@ describe('CartItemComponent', () => {
       price: 536,
       url: 'http://test.com',
       description: 'for the test'
-    }
+    };
     fixture.detectChanges();
   });
 

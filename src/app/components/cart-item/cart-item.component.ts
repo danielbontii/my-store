@@ -18,7 +18,7 @@ export class CartItemComponent {
     this.quantity = this.item.quantity;
   }
 
-  updateCost(item: CartItem):void {
+  updateCost(item: CartItem): void {
     item.quantity = this.quantity;
     this.updatedItemPrice.emit(item);
   }
