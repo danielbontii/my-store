@@ -11,7 +11,7 @@
       id="amount"
       min="0"
       [(ngModel)]="quantity"
-      (change)="updateCost(item)"
+      (ngModelChange)="updateCost(item)"
     />
     <button style="display: block" (click)="removeFromCart(item.id)">
       Remove &#10005;
